@@ -40,11 +40,11 @@ output = text
 # Example aame-account MFA login
 [profile baseProfile-mfa]
 region = us-east-2
-credential_process = python3 aws_credproc_chain.py --source-profile baseProfile --mfa-serial arn:aws:iam::111111111111:mfa/deviceName
+credential_process = python3 /usr/local/bin/aws_credproc_chain.py --source-profile baseProfile --mfa-serial arn:aws:iam::111111111111:mfa/deviceName
 
 # Exampling chaining through 2 roles in order
 [profile baseProfile-chain]
-credential_process = python3 aws_credproc_chain.py --source-profile baseProfile --mfa-serial arn:aws:iam::111111111111:mfa/deviceName --session-duration 43200 --role arn:aws:iam::222222222222:role/JumpRole --role arn:aws:iam::333333333333:role/FinalAdminRole --role-duration 3600 --region us-east-1
+credential_process = python3 /usr/local/bin/aws_credproc_chain.py --source-profile baseProfile --mfa-serial arn:aws:iam::111111111111:mfa/deviceName --session-duration 43200 --role arn:aws:iam::222222222222:role/JumpRole --role arn:aws:iam::333333333333:role/FinalAdminRole --role-duration 3600 --region us-east-1
 region = us-east-1
 
 ```
